@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar color="meme">
+    <ion-title>
+      Your Cellar
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="meme">
+      <ion-icon name="settings"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="start">
+      <ion-fab-button
+        ><ion-icon size="large" name="add" color="meme" (click)="addNewMeme()"></ion-icon
+      ></ion-fab-button>
+      <ion-fab-button
+        ><ion-icon size="large" name="walk" color="danger" (click)="logout()"></ion-icon
+      ></ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+  <ion-list>
+    <ion-item-sliding *ngFor="let meme of memes" #slidingItem>
+      <ion-item-options side="start">
+        <ion-item-option color="meme" (click)="viewMeme(meme?.title, meme?.imageUrl)"
+          >View</ion-item-option
+        >
+        <ion-item-option
+          color="medium"
+          (click)="showOtherActions(meme?.id, meme?.title, meme?.imageUrl, slidingItem)"
+          >Actions</ion-item-option
+        >
+      </ion-item-options>
+
+      <ion-item>
+        <ion-thumbnail slot="start">
+          <ion-img [src]="meme?.imageUrl"></ion-img>
+        </ion-thumbnail>
+        <ion-label>{{ meme?.title }}</ion-label>
+        <ion-badge slot="end" color="dark">{{ meme?.created | date: 'short' }}</ion-badge>
+      </ion-item>
+
+      <ion-item-options side="end">
+        <ion-item-option color="danger" (click)="handleDeleteMeme(meme?.title, meme?.id)"
+          >Delete</ion-item-option
+        >
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,8 @@
+{
+  "appId": "io.ionic.starter",
+  "appName": "the-meme-cellar",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "cordova": {}
+}

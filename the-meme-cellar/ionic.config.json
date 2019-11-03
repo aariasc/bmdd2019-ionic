@@ -1,0 +1,7 @@
+{
+  "name": "the-meme-cellar",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
